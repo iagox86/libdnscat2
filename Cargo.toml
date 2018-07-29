@@ -1,0 +1,21 @@
+[package]
+name = "dnscat2"
+version = "0.0.0"
+authors = ["iagox86 <ron-git@skullsecurity.org>"]
+
+[dependencies]
+
+# Create both a .so and .a file
+[lib]
+name = "dnscat2"
+crate-type = ["cdylib", "staticlib"]
+
+# Optimize everything we can
+[profile.release]
+lto = true
+panic = 'abort'
+opt-level = 's'
+incremental = false
+debug = false
+rpath = false
+debug-assertions = false
